@@ -1,0 +1,2913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I FITNESS STUDIO — Train Hard. Live Strong.</title>
+    <meta name="description"
+        content="I FITNESS STUDIO — Premium gym with world-class equipment, certified trainers, cardio arena, functional zone, steam & more." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#0a0a0a',
+                        'ink-2': '#1a1a1a',
+                        muted: '#6b6b6b',
+                        'muted-2': '#8a8a8a',
+                        'bg-2': '#f6f6f6',
+                        'bg-3': '#efefef',
+                    },
+                    fontFamily: {
+                        anton: ['Anton', 'sans-serif'],
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(40px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        scaleIn: { '0%': { opacity: '0', transform: 'scale(0.88)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+                        slideLeft: { '0%': { opacity: '0', transform: 'translateX(-50px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                        slideRight: { '0%': { opacity: '0', transform: 'translateX(50px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                        kenBurns: { '0%': { transform: 'scale(1.02)' }, '100%': { transform: 'scale(1.18)' } },
+                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+                        pulse2: { '0%, 100%': { boxShadow: '0 0 0 0 rgba(255,255,255,.7)' }, '50%': { boxShadow: '0 0 0 10px rgba(255,255,255,0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
+                        iconBounce: { '0%': { transform: 'rotate(0) scale(1)' }, '40%': { transform: 'rotate(-15deg) scale(1.18)' }, '70%': { transform: 'rotate(-5deg) scale(1.08)' }, '100%': { transform: 'rotate(-10deg) scale(1.1)' } },
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.9s cubic-bezier(.22,.9,.28,1) forwards',
+                        'fade-in': 'fadeIn 1s ease forwards',
+                        'scale-in': 'scaleIn 0.8s cubic-bezier(.22,.9,.28,1) forwards',
+                        'slide-left': 'slideLeft 0.9s cubic-bezier(.22,.9,.28,1) forwards',
+                        'slide-right': 'slideRight 0.9s cubic-bezier(.22,.9,.28,1) forwards',
+                        'ken-burns': 'kenBurns 8s linear forwards',
+                        'marquee': 'marquee 28s linear infinite',
+                        'pulse2': 'pulse2 1.7s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'icon-bounce': 'iconBounce 0.6s ease forwards',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ============ BASE ============ */
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c4c4c4;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0a0a0a;
+        }
+
+        /* ============================================================
+     NAVBAR — FIXED VISIBILITY
+     ============================================================ */
+
+        /* --- Default state (over dark hero) --- */
+        .nav {
+            color: #ffffff;
+        }
+
+        .nav .nav-link {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav .nav-link::after {
+            background: #ffffff;
+        }
+
+        .nav .burger {
+            border-color: rgba(255, 255, 255, .3);
+        }
+
+        .nav .burger span {
+            background: #ffffff;
+        }
+
+        .nav .nav-cta {
+            background: #ffffff;
+            color: #0a0a0a;
+            box-shadow: 0 8px 24px -10px rgba(0, 0, 0, .5);
+        }
+
+        .nav .nav-cta:hover {
+            background: #f2f2f2;
+            transform: translateY(-2px);
+        }
+
+        /* --- Scrolled state (white bg, dark text) --- */
+        .nav.scrolled {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: rgba(255, 255, 255, .94);
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+            box-shadow: 0 8px 30px -20px rgba(0, 0, 0, .25);
+            color: #0a0a0a;
+        }
+
+        .nav.scrolled .nav-link {
+            color: #6b6b6b;
+        }
+
+        .nav.scrolled .nav-link:hover {
+            color: #0a0a0a;
+        }
+
+        .nav.scrolled .nav-link::after {
+            background: #0a0a0a;
+        }
+
+        .nav.scrolled .burger {
+            border-color: rgba(0, 0, 0, .15);
+        }
+
+        .nav.scrolled .burger span {
+            background: #0a0a0a;
+        }
+
+        .nav.scrolled .nav-cta {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .nav.scrolled .nav-cta:hover {
+            background: #000;
+        }
+
+        /* --- Nav link base styles --- */
+        .nav-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            font-size: 0.73rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color .3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1.5px;
+            border-radius: 2px;
+            transition: width .35s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .nav-link:hover::after {
+            width: calc(100% - 24px);
+        }
+
+        /* --- Burger button --- */
+        .burger {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1.5px solid;
+            display: grid;
+            place-items: center;
+            transition: border-color .3s, background .3s;
+        }
+
+        .burger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            border-radius: 2px;
+            transition: transform .35s cubic-bezier(.22, .9, .28, 1), opacity .25s;
+        }
+
+        .burger span+span {
+            margin-top: 5px;
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ============================================================
+   MOBILE DRAWER — SOLID WHITE, HIGH CONTRAST
+   ============================================================ */
+        @media (max-width: 767.98px) {
+
+            /* Backdrop — now inside the header, sits BELOW the drawer */
+            .nav-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, .55);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity .35s ease, visibility .35s ease;
+                z-index: 100;
+                /* ← BELOW drawer (110) */
+            }
+
+            .nav-backdrop.show {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            /* Drawer — solid white, sits ABOVE the backdrop */
+            .nav-links {
+                display: flex !important;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: min(320px, 82vw);
+                background: #ffffff !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 96px 24px 40px;
+                border-left: 1px solid rgba(0, 0, 0, .08);
+                box-shadow: -24px 0 60px -20px rgba(0, 0, 0, .35);
+                transform: translateX(105%);
+                transition: transform .45s cubic-bezier(.22, .9, .28, 1);
+                z-index: 110;
+                /* ← ABOVE backdrop (100) */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+            .nav-links .nav-link {
+                display: block;
+                width: 100%;
+                padding: 16px 4px;
+                font-family: 'Anton', sans-serif;
+                font-weight: 400;
+                font-size: 1.25rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: #0a0a0a !important;
+                background: transparent;
+                border-bottom: 1px solid rgba(0, 0, 0, .08);
+                transition: padding-left .3s ease, color .3s ease, background .3s ease;
+            }
+
+            .nav-links .nav-link::after {
+                display: none;
+            }
+
+            .nav-links .nav-link:hover,
+            .nav-links .nav-link:active {
+                padding-left: 12px;
+                color: #000 !important;
+                background: rgba(0, 0, 0, .03);
+            }
+
+            /* Burger — always on top so it can be tapped to close */
+            .burger {
+                display: grid !important;
+                position: relative;
+                z-index: 130;
+                /* ← ABOVE everything */
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                border: 1.5px solid;
+                place-items: center;
+                transition: border-color .3s, background .3s;
+            }
+
+            .burger span {
+                display: block;
+                width: 20px;
+                height: 2px;
+                border-radius: 2px;
+                transition: transform .35s cubic-bezier(.22, .9, .28, 1), opacity .25s, background .3s;
+            }
+
+            .burger span+span {
+                margin-top: 5px;
+            }
+
+            .burger.open span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .burger.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .burger.open span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+
+        /* ============ SCROLL REVEAL ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .9s cubic-bezier(.22, .9, .28, 1), transform .9s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 1s cubic-bezier(.22, .9, .28, 1), transform 1s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .reveal-left.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1s cubic-bezier(.22, .9, .28, 1), transform 1s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .reveal-right.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(.9);
+            transition: opacity .9s cubic-bezier(.22, .9, .28, 1), transform .9s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .reveal-scale.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ============ TEXT STROKE ============ */
+        .text-stroke-white {
+            -webkit-text-stroke: 2px #fff;
+            color: transparent;
+        }
+
+        /* ============ MARQUEE TRACK ============ */
+        @keyframes marquee-x {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-track {
+            animation: marquee-x 28s linear infinite;
+        }
+
+        /* ============ NO SCROLLBAR ============ */
+        .no-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ============ FACILITY CARD ICON BOUNCE ============ */
+        .fac-card:hover .fac-card__icon {
+            animation: iconBounce .6s ease forwards;
+        }
+
+        /* ============ LIGHTBOX ============ */
+        .lightbox {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .35s ease;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            transform: scale(.94);
+            transition: transform .4s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .lightbox.open img {
+            transform: scale(1);
+        }
+
+        /* ============ HERO SLIDE ============ */
+        .hero-slide {
+            opacity: 0;
+            transition: opacity 1.4s ease;
+            will-change: opacity, transform;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            animation: kenBurns 8s linear infinite alternate;
+        }
+
+        /* ============ FAQ ============ */
+        .faq-item__a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        /* ============ TO-TOP BUTTON ============ */
+        .to-top {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity .6s cubic-bezier(.22, .9, .28, 1), transform .6s cubic-bezier(.22, .9, .28, 1), visibility .6s, background .3s;
+        }
+
+        .to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+   FACILITIES — BACKGROUND IMAGE + OVERLAY
+   ============================================================ */
+        .facilities-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: .55;
+            /* ← was .22 — much more visible now */
+            z-index: -2;
+        }
+
+        .facilities-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(246, 246, 246, .35) 0%,
+                    rgba(246, 246, 246, .20) 50%,
+                    rgba(246, 246, 246, .40) 100%);
+            /* ← was .72/.55/.78 — much softer now */
+            z-index: -1;
+        }
+
+        @media (max-width: 1024px) {
+            .facilities-bg::before {
+                background-attachment: scroll;
+            }
+        }
+
+        /* ============================================================
+   GALLERY — FILTER TABS + BENTO GRID
+   ============================================================ */
+
+        /* Filter tabs */
+        .gal-filter {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 22px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #6b6b6b;
+            background: #fff;
+            border: 1.5px solid rgba(0, 0, 0, .12);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all .35s cubic-bezier(.22, .9, .28, 1);
+        }
+
+        .gal-filter:hover {
+            color: #0a0a0a;
+            border-color: #0a0a0a;
+            transform: translateY(-2px);
+        }
+
+        .gal-filter.active {
+            background: #0a0a0a;
+            color: #ffffff;
+            border-color: #0a0a0a;
+            box-shadow: 0 12px 28px -12px rgba(0, 0, 0, .6);
+        }
+
+        /* Gallery item hidden state for filter */
+        .g-item.is-hidden {
+            display: none;
+        }
+
+        /* Gallery item fade-in on filter */
+        .g-item {
+            transition: opacity .4s ease, transform .4s ease;
+        }
+
+        /* Mobile: keep horizontal scroll for gallery */
+        @media (max-width: 640px) {
+            #galleryGrid {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                gap: 12px;
+                margin-inline: -22px;
+                padding: 0 22px 16px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                grid-auto-rows: auto;
+            }
+
+            #galleryGrid::-webkit-scrollbar {
+                display: none;
+            }
+
+            #galleryGrid .g-item {
+                flex: 0 0 82%;
+                height: 380px !important;
+                scroll-snap-align: center;
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+
+            /* Mobile: always show captions */
+            #galleryGrid .g-item figcaption {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            #galleryGrid .g-item>div[class*="gradient"] {
+                opacity: .85 !important;
+            }
+        }
+
+        /* ============ HERO TEXT SHADOW ============ */
+        .hero-text-shadow {
+            text-shadow: 0 2px 30px rgba(0, 0, 0, .35);
+        }
+
+        .hero-p-shadow {
+            text-shadow: 0 2px 14px rgba(0, 0, 0, .4);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-ink font-inter leading-relaxed">
+
+    <!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+    <header class="nav fixed top-0 inset-x-0 z-[100] py-4 lg:py-5 transition-all duration-500" id="nav">
+        <div class="w-full max-w-[1280px] mx-auto px-5 md:px-6 flex items-center justify-between gap-4">
+
+            <!-- Logo + Brand Name -->
+            <a href="#top" class="flex items-center gap-3 shrink-0 group">
+                <img src="gymlogo.jpeg" alt="I.F.S Fitness Studio"
+                    class="h-12 md:h-14 lg:h-16 w-auto rounded-full transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 drop-shadow-[0_4px_20px_rgba(0,0,0,.35)]" />
+                <span
+                    class="brand-name flex flex-col leading-none font-anton uppercase tracking-wider transition-colors duration-500">
+                    <span class="text-[1.05rem] md:text-[1.15rem] lg:text-[1.3rem]">
+                        I <span class="brand-accent">FITNESS</span>
+                    </span>
+                    <span class="text-[0.62rem] md:text-[0.68rem] lg:text-[0.72rem] tracking-[0.32em] mt-1 opacity-85">
+                        STUDIO
+                    </span>
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-links hidden md:flex items-center gap-1 lg:gap-2" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#facilities" class="nav-link">Facilities</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#trainers" class="nav-link">Trainers</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#plans" class="nav-link">Plans</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Right side: CTA + burger -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="#contact"
+                    class="nav-cta hidden md:inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.72rem] font-bold tracking-[0.12em] uppercase transition-all duration-500">
+                    Join Now
+                </a>
+
+                <button class="burger md:hidden" id="burger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ✅ Backdrop is INSIDE the header so it shares the same stacking context -->
+        <div class="nav-backdrop md:hidden" id="navBackdrop" aria-hidden="true"></div>
+    </header>
+
+    <!-- ============================================================
+     HERO
+     ============================================================ -->
+    <section class="relative min-h-[100svh] flex items-center overflow-hidden isolate bg-black" id="top">
+
+        <!-- Background slides -->
+        <div class="absolute inset-0 -z-20" id="heroSlides">
+            <div class="hero-slide active absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80')">
+            </div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80')">
+            </div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80')">
+            </div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80')">
+            </div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center"
+                style="background-image:url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1920&q=80')">
+            </div>
+        </div>
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 -z-10"
+            style="background:linear-gradient(180deg,rgba(6,6,6,.72) 0%,rgba(6,6,6,.28) 42%,rgba(6,6,6,.85) 100%),linear-gradient(90deg,rgba(6,6,6,.82) 0%,rgba(6,6,6,.12) 55%,rgba(6,6,6,.45) 100%)">
+        </div>
+
+        <!-- Content -->
+        <div class="relative w-full max-w-[1400px] mx-auto px-[clamp(22px,5vw,80px)] py-32 md:py-36 text-left">
+            <span
+                class="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/10 border border-white/25 text-white text-[0.68rem] font-bold tracking-[0.24em] uppercase mb-7 backdrop-blur-md animate-fade-in">
+                <i class="w-1.5 h-1.5 rounded-full bg-white animate-pulse2"></i> Welcome to I Fitness Studio
+            </span>
+
+            <h1
+                class="font-anton font-normal text-[clamp(2.6rem,9.5vw,7rem)] leading-[0.92] tracking-wider uppercase text-white hero-text-shadow animate-fade-up">
+                Build The
+                <span class="block text-stroke-white animate-slide-left" style="animation-delay:.15s">Body You</span>
+                <span class="block relative animate-slide-right" style="animation-delay:.3s">
+                    Deserve.
+                    <span
+                        class="absolute left-0.5 bottom-[0.06em] h-[0.14em] w-[min(72%,480px)] bg-white/85 rounded"></span>
+                </span>
+            </h1>
+
+            <p class="text-neutral-300 text-[clamp(0.98rem,1.6vw,1.12rem)] max-w-[560px] mt-8 hero-p-shadow animate-fade-up"
+                style="animation-delay:.45s">
+                Premium equipment, certified coaches and a motivating atmosphere — everything you need to transform, all
+                under one roof.
+            </p>
+
+            <div class="flex flex-wrap gap-3.5 mt-10 animate-fade-up" style="animation-delay:.6s">
+                <a href="#contact"
+                    class="inline-flex items-center gap-2.5 bg-white text-ink rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:bg-neutral-100 hover:shadow-[0_20px_42px_-14px_rgba(0,0,0,.5)]">
+                    Start Free Trial →
+                </a>
+                <a href="#facilities"
+                    class="inline-flex items-center gap-2.5 border-2 border-white/50 text-white rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:bg-white hover:text-ink hover:-translate-y-1">
+                    Explore Facilities
+                </a>
+            </div>
+
+            <div class="flex flex-wrap gap-12 mt-16 pt-8 border-t border-white/20 max-w-[700px] animate-fade-up"
+                style="animation-delay:.75s">
+                <div><b class="block font-anton text-[2.1rem] text-white leading-none" data-count="2500">0</b><span
+                        class="text-[0.7rem] tracking-[0.18em] uppercase text-neutral-400">Happy Members</span></div>
+                <div><b class="block font-anton text-[2.1rem] text-white leading-none" data-count="60">0</b><span
+                        class="text-[0.7rem] tracking-[0.18em] uppercase text-neutral-400">Machines</span></div>
+                <div><b class="block font-anton text-[2.1rem] text-white leading-none" data-count="12">0</b><span
+                        class="text-[0.7rem] tracking-[0.18em] uppercase text-neutral-400">Expert Trainers</span></div>
+                <div><b class="block font-anton text-[2.1rem] text-white leading-none" data-count="24">0</b><span
+                        class="text-[0.7rem] tracking-[0.18em] uppercase text-neutral-400">Hours Open</span></div>
+            </div>
+        </div>
+
+        <!-- Slide dots -->
+        <div class="absolute left-[clamp(22px,5vw,80px)] bottom-10 flex gap-3 z-10" id="heroDots"></div>
+    </section>
+
+
+    <!-- ============================================================
+     MARQUEE STRIP
+     ============================================================ -->
+    <div class="bg-ink text-white py-5 overflow-hidden whitespace-nowrap">
+        <div class="inline-flex gap-14 marquee-track">
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Strength
+                Training</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Cardio
+                Arena</span>
+            <span
+                class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">CrossFit</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Personal
+                Coaching</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Yoga &amp;
+                Zumba</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Steam &amp;
+                Shower</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Strength
+                Training</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Cardio
+                Arena</span>
+            <span
+                class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">CrossFit</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Personal
+                Coaching</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Yoga &amp;
+                Zumba</span>
+            <span class="font-anton text-base tracking-[2.8px] uppercase inline-flex items-center gap-14">Steam &amp;
+                Shower</span>
+        </div>
+    </div>
+
+
+    <!-- ============================================================
+     ABOUT
+     ============================================================ -->
+    <section class="py-20 md:py-32 relative" id="about">
+        <div class="w-full max-w-[1240px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+
+            <div class="relative reveal-left">
+                <div
+                    class="rounded-3xl overflow-hidden border border-black/10 aspect-[4/5] shadow-[0_40px_80px_-40px_rgba(0,0,0,.25)] group">
+                    <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=900&q=80"
+                        alt="Members training" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-[1.1s] group-hover:scale-110" />
+                </div>
+                <div
+                    class="absolute -right-7 -bottom-9 w-[52%] aspect-square rounded-2xl overflow-hidden border-[6px] border-white shadow-[0_30px_60px_-25px_rgba(0,0,0,.3)]">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80"
+                        alt="Weight plates" loading="lazy" class="w-full h-full object-cover" />
+                </div>
+                <div
+                    class="absolute -left-6 top-9 bg-ink text-white rounded-2xl px-5 py-4 text-center shadow-[0_22px_46px_-18px_rgba(0,0,0,.5)] animate-float">
+                    <b class="block font-anton text-[1.85rem] leading-none">10+</b>
+                    <span class="text-[0.6rem] font-extrabold tracking-[0.16em] uppercase opacity-85">Years
+                        Strong</span>
+                </div>
+            </div>
+
+            <div class="reveal-right">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full">About
+                    Our Gym</span>
+
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    More Than A Gym —<br>
+                    <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">A
+                        Fitness Family.</span>
+                </h2>
+
+                <p class="text-muted text-[1.02rem] max-w-[640px] mt-5">
+                    I FITNESS STUDIO was built for one reason: to give people a clean, spacious and seriously
+                    well-equipped place to train. From your first day to your hundredth, our team makes sure you always
+                    know what to do next.
+                </p>
+
+                <ul class="grid gap-3.5 mt-9">
+                    <li
+                        class="flex gap-3.5 items-start text-[0.94rem] text-muted transition-all duration-300 hover:translate-x-1.5 hover:text-ink">
+                        <i
+                            class="flex-none grid place-items-center w-[22px] h-[22px] mt-0.5 rounded-full bg-ink text-white text-[0.6rem] font-black not-italic">✓</i>
+                        <span><b class="text-ink">Spacious floor plan</b> — no waiting in queues for machines.</span>
+                    </li>
+                    <li
+                        class="flex gap-3.5 items-start text-[0.94rem] text-muted transition-all duration-300 hover:translate-x-1.5 hover:text-ink">
+                        <i
+                            class="flex-none grid place-items-center w-[22px] h-[22px] mt-0.5 rounded-full bg-ink text-white text-[0.6rem] font-black not-italic">✓</i>
+                        <span><b class="text-ink">Certified &amp; friendly trainers</b> who actually correct your
+                            form.</span>
+                    </li>
+                    <li
+                        class="flex gap-3.5 items-start text-[0.94rem] text-muted transition-all duration-300 hover:translate-x-1.5 hover:text-ink">
+                        <i
+                            class="flex-none grid place-items-center w-[22px] h-[22px] mt-0.5 rounded-full bg-ink text-white text-[0.6rem] font-black not-italic">✓</i>
+                        <span><b class="text-ink">Personalised diet &amp; workout plans</b> based on your body
+                            goals.</span>
+                    </li>
+                    <li
+                        class="flex gap-3.5 items-start text-[0.94rem] text-muted transition-all duration-300 hover:translate-x-1.5 hover:text-ink">
+                        <i
+                            class="flex-none grid place-items-center w-[22px] h-[22px] mt-0.5 rounded-full bg-ink text-white text-[0.6rem] font-black not-italic">✓</i>
+                        <span><b class="text-ink">Deep-cleaned daily</b> with sanitised equipment and fresh air
+                            flow.</span>
+                    </li>
+                </ul>
+
+                <div class="mt-10">
+                    <a href="#plans"
+                        class="inline-flex items-center gap-2.5 bg-ink text-white rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:bg-black hover:shadow-[0_20px_42px_-14px_rgba(0,0,0,.7)]">View
+                        Membership Plans</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     FACILITIES
+     ============================================================ -->
+    <section class="relative py-20 md:py-32 bg-bg-2 border-y border-black/10 overflow-hidden isolate facilities-bg"
+        id="facilities">
+        <div class="w-full max-w-[1240px] mx-auto px-6 relative">
+
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">
+                    Our Facilities
+                </span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Everything You Need<br>
+                    <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Under
+                        One Roof</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Zone by zone, machine by machine — our
+                    floor is designed so you never have to compromise on your workout.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-16">
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.05s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">01</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🏋️</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Strength
+                        Zone</h3>
+                    <p class="text-muted text-[0.9rem]">Full free-weight area with power racks, Olympic bars, dumbbells
+                        up to 50kg and plate-loaded machines.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.1s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">02</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🏃</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Cardio
+                        Arena</h3>
+                    <p class="text-muted text-[0.9rem]">Treadmills, ellipticals, spin bikes and stair climbers — each
+                        with its own screen and entertainment.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.15s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">03</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🤸</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Functional
+                        Zone</h3>
+                    <p class="text-muted text-[0.9rem]">CrossFit rigs, battle ropes, kettlebells, sled tracks and open
+                        turf for HIIT and conditioning.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.2s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">04</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🧘</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Yoga &amp;
+                        Zumba</h3>
+                    <p class="text-muted text-[0.9rem]">A dedicated air-conditioned studio for yoga, Zumba, aerobics and
+                        stretching classes.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.25s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">05</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        💪</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Personal
+                        Training</h3>
+                    <p class="text-muted text-[0.9rem]">One-on-one coaching with certified trainers, custom programs and
+                        weekly progress tracking.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.3s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">06</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🚿</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Steam
+                        &amp; Showers</h3>
+                    <p class="text-muted text-[0.9rem]">Post-workout steam room, hot showers and separate hygienic
+                        changing areas for men &amp; women.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.35s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">07</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🔐</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Secure
+                        Lockers</h3>
+                    <p class="text-muted text-[0.9rem]">Digital lockers with CCTV-monitored changing rooms so your
+                        belongings stay safe.</p>
+                </article>
+
+                <article
+                    class="fac-card reveal group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 backdrop-blur-xl p-8 md:p-9 transition-all duration-700 hover:-translate-y-2.5 hover:border-ink hover:shadow-[0_34px_66px_-30px_rgba(0,0,0,.28)] hover:bg-white"
+                    style="transition-delay:.4s">
+                    <span
+                        class="absolute right-5 top-4 font-anton text-[2.6rem] leading-none text-black/[.06] transition-all duration-500 group-hover:text-black/[.14] group-hover:scale-110">08</span>
+                    <div
+                        class="fac-card__icon grid place-items-center w-[60px] h-[60px] rounded-2xl bg-bg-2 border border-black/10 text-2xl mb-6 transition-all duration-500 group-hover:bg-ink group-hover:border-ink">
+                        🥤</div>
+                    <h3 class="font-anton font-normal text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Supplement
+                        Bar</h3>
+                    <p class="text-muted text-[0.9rem]">Protein shakes, pre-workout, energy drinks and healthy snacks
+                        available right at the counter.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     FEATURES
+     ============================================================ -->
+    <section class="py-20 md:py-32" id="features">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Features</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Built To Keep You<br>
+                    <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Coming
+                        Back</span>
+                </h2>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px mt-16 bg-black/10 border border-black/10 rounded-3xl overflow-hidden reveal">
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🕐</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Open 24/7</h4>
+                    <p class="text-[0.84rem] text-muted">Train at 5 AM or 2 AM — the doors are always open for members.
+                    </p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🎓</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Certified Trainers</h4>
+                    <p class="text-[0.84rem] text-muted">ACE &amp; ISSA certified coaches with years of real-floor
+                        experience.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">📋</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Free Diet Plan</h4>
+                    <p class="text-[0.84rem] text-muted">Custom nutrition guidance included with every membership.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">📊</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Body Analysis</h4>
+                    <p class="text-[0.84rem] text-muted">Monthly body composition checks to measure real progress.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">❄️</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Full AC + Ventilation</h4>
+                    <p class="text-[0.84rem] text-muted">Fresh airflow and cooling so you never train in a stuffy room.
+                    </p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🧼</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Sanitised Daily</h4>
+                    <p class="text-[0.84rem] text-muted">Equipment wiped down every hour, deep-clean every night.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🎵</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Pro Sound System</h4>
+                    <p class="text-[0.84rem] text-muted">High-energy playlist and surround speakers across the floor.
+                    </p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🅿️</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Free Parking</h4>
+                    <p class="text-[0.84rem] text-muted">Ample secure parking space right outside the studio.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">🧑‍🤝‍🧑</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Group Classes</h4>
+                    <p class="text-[0.84rem] text-muted">Daily yoga, Zumba, HIIT and spin sessions led by expert
+                        coaches.</p>
+                </div>
+                <div
+                    class="group bg-white p-9 relative transition-all duration-500 hover:bg-bg-2 after:content-[''] after:absolute after:left-0 after:top-0 after:w-[2.5px] after:h-0 after:bg-ink after:transition-all after:duration-500 hover:after:h-full">
+                    <span
+                        class="inline-block text-2xl mb-4 transition-transform duration-400 group-hover:scale-125 group-hover:-rotate-12">📱</span>
+                    <h4 class="text-[0.98rem] font-bold mb-2 text-ink">Progress App</h4>
+                    <p class="text-[0.84rem] text-muted">Track workouts, weight and personal records on our mobile app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     TRAINERS
+     ============================================================ -->
+    <section class="py-20 md:py-32 bg-bg-2 border-y border-black/10" id="trainers">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Our
+                    Team</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Meet Your <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Coaches</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Certified, experienced and genuinely
+                    invested in your progress — every single session.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+
+                <article
+                    class="reveal-scale group relative overflow-hidden rounded-3xl bg-white border border-black/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_70px_-30px_rgba(0,0,0,.22)] hover:border-ink"
+                    style="transition-delay:.05s">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=80"
+                            alt="Vikram Singh" loading="lazy"
+                            class="w-full h-full object-cover grayscale-[.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
+                        <div
+                            class="absolute right-4 bottom-4 flex gap-2 translate-y-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"
+                                aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"
+                                aria-label="Twitter">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-anton font-normal text-[1.15rem] tracking-wider uppercase text-ink mb-1">Vikram
+                            Singh</h4>
+                        <span class="text-[0.78rem] text-muted tracking-[0.14em] uppercase font-semibold">Head Coach ·
+                            Strength</span>
+                        <p class="text-[0.86rem] text-muted mt-3.5 pt-3.5 border-t border-black/10">10+ years coaching
+                            powerlifters and athletes. Specialises in strength and conditioning.</p>
+                    </div>
+                </article>
+
+                <article
+                    class="reveal-scale group relative overflow-hidden rounded-3xl bg-white border border-black/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_70px_-30px_rgba(0,0,0,.22)] hover:border-ink"
+                    style="transition-delay:.15s">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=700&q=80"
+                            alt="Anjali Mehta" loading="lazy"
+                            class="w-full h-full object-cover grayscale-[.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
+                        <div
+                            class="absolute right-4 bottom-4 flex gap-2 translate-y-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg></a>
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-anton font-normal text-[1.15rem] tracking-wider uppercase text-ink mb-1">Anjali
+                            Mehta</h4>
+                        <span class="text-[0.78rem] text-muted tracking-[0.14em] uppercase font-semibold">Yoga &amp;
+                            Pilates</span>
+                        <p class="text-[0.86rem] text-muted mt-3.5 pt-3.5 border-t border-black/10">Certified yoga
+                            instructor with 8 years teaching Hatha, Vinyasa and restorative yoga.</p>
+                    </div>
+                </article>
+
+                <article
+                    class="reveal-scale group relative overflow-hidden rounded-3xl bg-white border border-black/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_70px_-30px_rgba(0,0,0,.22)] hover:border-ink"
+                    style="transition-delay:.25s">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=80"
+                            alt="Karan Patel" loading="lazy"
+                            class="w-full h-full object-cover grayscale-[.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
+                        <div
+                            class="absolute right-4 bottom-4 flex gap-2 translate-y-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg></a>
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-anton font-normal text-[1.15rem] tracking-wider uppercase text-ink mb-1">Karan
+                            Patel</h4>
+                        <span class="text-[0.78rem] text-muted tracking-[0.14em] uppercase font-semibold">CrossFit &amp;
+                            HIIT</span>
+                        <p class="text-[0.86rem] text-muted mt-3.5 pt-3.5 border-t border-black/10">Level-2 CrossFit
+                            coach. Specialises in metabolic conditioning and functional movement.</p>
+                    </div>
+                </article>
+
+                <article
+                    class="reveal-scale group relative overflow-hidden rounded-3xl bg-white border border-black/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_70px_-30px_rgba(0,0,0,.22)] hover:border-ink"
+                    style="transition-delay:.35s">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=700&q=80"
+                            alt="Sneha Reddy" loading="lazy"
+                            class="w-full h-full object-cover grayscale-[.2] transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
+                        <div
+                            class="absolute right-4 bottom-4 flex gap-2 translate-y-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg></a>
+                            <a href="#"
+                                class="grid place-items-center w-9 h-9 rounded-xl bg-white/15 border border-white/30 text-white backdrop-blur-md transition-all hover:bg-white hover:text-ink"><svg
+                                    viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-anton font-normal text-[1.15rem] tracking-wider uppercase text-ink mb-1">Sneha
+                            Reddy</h4>
+                        <span class="text-[0.78rem] text-muted tracking-[0.14em] uppercase font-semibold">Nutrition
+                            &amp; Weight Loss</span>
+                        <p class="text-[0.86rem] text-muted mt-3.5 pt-3.5 border-t border-black/10">Sports nutritionist
+                            helping members reach their goal weight with sustainable plans.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+    <section class="py-20 md:py-32" id="testimonials">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Testimonials</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    What Our <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Members
+                        Say</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Real people, real results — hear from
+                    the I Fitness Studio community.</p>
+            </div>
+
+            <div class="relative mt-16 reveal">
+                <div class="flex gap-6 overflow-x-auto no-scrollbar pb-3 snap-x snap-mandatory scroll-smooth"
+                    id="testiTrack">
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"I've been
+                            to many gyms in the city, but the energy here is unmatched. The trainers actually care about
+                            your form and progress. Lost 12kg in 5 months!"</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Rahul Sharma" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Rahul Sharma</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2022</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"The
+                            facilities are spotless and the equipment is top-notch. I love that it's never overcrowded —
+                            I can always get my workout done without waiting."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=45" alt="Priya Nair" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Priya Nair</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2023</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"The free
+                            diet plan and monthly body analysis are game-changers. I've never felt healthier or
+                            stronger. Highly recommend to anyone serious about fitness."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=33" alt="Amit Verma" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Amit Verma</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2021</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"As a
+                            working mom, I needed a gym that respects my time. The 24/7 access and quick HIIT classes
+                            are perfect. The trainers remember your name and your goals."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=47" alt="Sneha Kulkarni" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Sneha Kulkarni</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2023</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"Best
+                            investment I've made for myself. The personal training sessions with Karan completely
+                            changed how I lift. Added 15kg to my deadlift in 3 months."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=15" alt="Arjun Reddy" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Arjun Reddy</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2020</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"I was
+                            terrified of gyms before joining. The staff here made me feel comfortable from day one. The
+                            women's section and yoga studio are wonderful."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Divya Menon" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Divya Menon</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2024</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"The
+                            supplement bar and steam room are such premium touches. It feels like a 5-star fitness
+                            resort, not just a gym. Worth every rupee."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=17" alt="Rohan Gupta" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Rohan Gupta</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2022</span></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="testi-card group flex-none w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] snap-start bg-bg-2 border border-black/10 rounded-3xl p-9 transition-all duration-500 hover:-translate-y-1.5 hover:border-ink hover:bg-white hover:shadow-[0_26px_52px_-22px_rgba(0,0,0,.2)] relative flex flex-col">
+                        <span
+                            class="absolute top-1.5 right-6 font-anton text-[6rem] leading-none text-black/5 pointer-events-none">"</span>
+                        <div class="text-ink text-base tracking-[3px] mb-4">★★★★★</div>
+                        <p class="text-[0.94rem] text-ink-2 leading-[1.75] italic mb-6 flex-1 relative z-10">"I travel a
+                            lot for work and the team here always makes sure I never fall off track. They even give me
+                            workouts I can do in hotel rooms. Amazing support."</p>
+                        <div class="flex items-center gap-3.5 pt-5 border-t border-black/10">
+                            <img src="https://i.pravatar.cc/150?img=26" alt="Kavita Iyer" loading="lazy"
+                                class="w-12 h-12 rounded-full object-cover border-2 border-ink" />
+                            <div><b class="block text-[0.92rem] text-ink">Kavita Iyer</b><span
+                                    class="text-[0.74rem] text-muted">Member since 2021</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center justify-center gap-5 mt-9">
+                    <button
+                        class="grid place-items-center w-12 h-12 rounded-full border-[1.5px] border-black/20 text-ink text-xl transition-all duration-300 hover:bg-ink hover:text-white hover:border-ink hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-ink disabled:hover:border-black/20 disabled:hover:scale-100"
+                        id="testiPrev" aria-label="Previous">←</button>
+                    <div class="flex gap-2" id="testiDots"></div>
+                    <button
+                        class="grid place-items-center w-12 h-12 rounded-full border-[1.5px] border-black/20 text-ink text-xl transition-all duration-300 hover:bg-ink hover:text-white hover:border-ink hover:scale-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-ink disabled:hover:border-black/20 disabled:hover:scale-100"
+                        id="testiNext" aria-label="Next">→</button>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     PLANS
+     ============================================================ -->
+    <section class="py-20 md:py-32 bg-bg-2 border-y border-black/10" id="plans">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Membership
+                    Plans</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Choose Your <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Plan</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Simple, transparent pricing. No hidden
+                    fees, ever. Cancel anytime.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 items-stretch">
+
+                <div class="reveal-scale relative bg-white border border-black/10 rounded-[22px] p-11 flex flex-col transition-all duration-500 hover:-translate-y-2 hover:border-ink hover:shadow-[0_40px_80px_-40px_rgba(0,0,0,.25)]"
+                    style="transition-delay:.05s">
+                    <span
+                        class="self-start inline-block text-[0.68rem] font-extrabold tracking-[0.22em] uppercase px-3.5 py-1.5 rounded-full bg-bg-2 text-ink border border-black/10 mb-6">Starter</span>
+                    <div class="flex items-end gap-1.5 mb-2"><b
+                            class="font-anton text-[3rem] leading-none text-ink">₹1,499</b><span
+                            class="text-[0.86rem] text-muted pb-2">/ month</span></div>
+                    <div class="font-anton text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Basic Access</div>
+                    <p class="text-[0.88rem] text-muted mb-7 pb-7 border-b border-black/10">Perfect for beginners
+                        starting their fitness journey.</p>
+                    <ul class="grid gap-3.5 mb-9 flex-1">
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Full gym floor access</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Cardio &amp; strength zones</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Locker &amp; changing room</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Free fitness assessment</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Mobile app access</li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full inline-flex items-center justify-center border-[1.5px] border-ink text-ink rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:bg-ink hover:text-white hover:-translate-y-1">Get
+                        Started</a>
+                </div>
+
+                <div class="reveal-scale relative bg-ink text-white border border-ink rounded-[22px] p-11 flex flex-col scale-[1.03] shadow-[0_50px_90px_-40px_rgba(0,0,0,.5)] transition-all duration-500 hover:scale-[1.03] hover:-translate-y-2"
+                    style="transition-delay:.15s">
+                    <span
+                        class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white text-ink text-[0.64rem] font-extrabold tracking-[0.2em] uppercase px-4 py-2 rounded-full shadow-[0_12px_24px_-10px_rgba(0,0,0,.4)] whitespace-nowrap">Most
+                        Popular</span>
+                    <span
+                        class="self-start inline-block text-[0.68rem] font-extrabold tracking-[0.22em] uppercase px-3.5 py-1.5 rounded-full bg-white/10 text-white border border-white/20 mb-6">Pro</span>
+                    <div class="flex items-end gap-1.5 mb-2"><b
+                            class="font-anton text-[3rem] leading-none text-white">₹2,999</b><span
+                            class="text-[0.86rem] text-white/60 pb-2">/ month</span></div>
+                    <div class="font-anton text-[1.2rem] tracking-wider uppercase text-white mb-2.5">All-Access Pro
+                    </div>
+                    <p class="text-[0.88rem] text-white/70 mb-7 pb-7 border-b border-white/15">Our best value —
+                        everything you need to transform seriously.</p>
+                    <ul class="grid gap-3.5 mb-9 flex-1">
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Everything in Starter</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Personalised diet plan</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Monthly body analysis</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Group classes (Yoga / Zumba)</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Steam &amp; shower access</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-white/90 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-white before:text-ink before:text-[0.6rem] before:font-black">
+                            Free supplement sample</li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full inline-flex items-center justify-center bg-white text-ink rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:bg-neutral-100">Join
+                        Pro Now</a>
+                </div>
+
+                <div class="reveal-scale relative bg-white border border-black/10 rounded-[22px] p-11 flex flex-col transition-all duration-500 hover:-translate-y-2 hover:border-ink hover:shadow-[0_40px_80px_-40px_rgba(0,0,0,.25)]"
+                    style="transition-delay:.25s">
+                    <span
+                        class="self-start inline-block text-[0.68rem] font-extrabold tracking-[0.22em] uppercase px-3.5 py-1.5 rounded-full bg-bg-2 text-ink border border-black/10 mb-6">Elite</span>
+                    <div class="flex items-end gap-1.5 mb-2"><b
+                            class="font-anton text-[3rem] leading-none text-ink">₹5,499</b><span
+                            class="text-[0.86rem] text-muted pb-2">/ month</span></div>
+                    <div class="font-anton text-[1.2rem] tracking-wider uppercase text-ink mb-2.5">Elite Coach</div>
+                    <p class="text-[0.88rem] text-muted mb-7 pb-7 border-b border-black/10">For serious athletes —
+                        dedicated coaching, real results.</p>
+                    <ul class="grid gap-3.5 mb-9 flex-1">
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Everything in Pro</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            12 personal training sessions</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Custom workout programming</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Priority machine booking</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Weekly progress reviews</li>
+                        <li
+                            class="flex gap-3 items-start text-[0.9rem] text-ink-2 before:content-['✓'] before:flex-none before:grid before:place-items-center before:w-5 before:h-5 before:mt-0.5 before:rounded-full before:bg-ink before:text-white before:text-[0.6rem] before:font-black">
+                            Guest passes (2 / month)</li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full inline-flex items-center justify-center border-[1.5px] border-ink text-ink rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:bg-ink hover:text-white hover:-translate-y-1">Go
+                        Elite</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     GALLERY — UNIQUE BENTO GRID + FILTERS
+     ============================================================ -->
+    <section class="py-20 md:py-32 bg-white border-y border-black/10" id="gallery">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Gallery</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Inside <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">I
+                        Fitness Studio</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Zone by zone, machine by machine — see
+                    the floor, the equipment and the energy that powers every workout.</p>
+            </div>
+
+
+
+            <div class="reveal mt-16 grid grid-cols-2 lg:grid-cols-4 auto-rows-[170px] lg:auto-rows-[200px] gap-3 lg:gap-4 max-sm:flex max-sm:overflow-x-auto max-sm:snap-x max-sm:snap-mandatory no-scrollbar max-sm:-mx-6 max-sm:px-6"
+                id="galleryGrid">
+
+                <!-- 01 — BIG FEATURE -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black col-span-2 row-span-2 max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80"
+                        alt="Main workout floor" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Main Training
+                            Floor</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Strength Zone</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 02 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+                        alt="Cardio machines" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Cardio Arena</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Treadmills</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 03 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+                        alt="Dumbbell rack" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Free Weights</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Dumbbell Rack</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 04 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+                        alt="Functional training" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Functional
+                            Zone</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">HIIT Area</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 05 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=800&q=80"
+                        alt="Personal training" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Personal
+                            Training</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">1-on-1 Coaching</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 06 — WIDE -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black col-span-2 max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1200&q=80"
+                        alt="Group class studio" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Group Studio</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Yoga &amp; Zumba</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 07 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80"
+                        alt="Kettlebells" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Kettlebell
+                            Rack</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Conditioning</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 08 -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+                        alt="Power racks" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Power Racks</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Heavy Lifting</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 09 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80"
+                        alt="Weight plates" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Weight Plates</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Olympic Spec</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 10 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1534438097545-a2c22c57f2ad?auto=format&fit=crop&w=800&q=80"
+                        alt="Squat rack" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Squat Racks</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Barbell Zone</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 11 — WIDE (NEW) -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black col-span-2 max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=1200&q=80"
+                        alt="Cardio row" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Cardio Row</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Treadmills · Ellipticals
+                            · Rowers</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 12 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
+                        alt="Spin bikes" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Spin Bikes</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Cycling Studio</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 13 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=800&q=80"
+                        alt="Battle ropes" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Battle Ropes</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Conditioning</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 14 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
+                        alt="CrossFit rig" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">CrossFit Rig</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Functional</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 15 — NEW -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80"
+                        alt="Rowing machines" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Rowing
+                            Machines</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Full-Body Cardio</span>
+                    </figcaption>
+                </figure>
+
+                <!-- 16 — WIDE (NEW) -->
+                <figure
+                    class="g-item group relative overflow-hidden rounded-2xl border border-black/10 cursor-pointer bg-black col-span-2 max-sm:flex-none max-sm:w-[82%] max-sm:h-[360px] max-sm:snap-center">
+                    <img src="https://images.unsplash.com/photo-1517343985841-f8b2d66e010b?auto=format&fit=crop&w=1200&q=80"
+                        alt="Training session" loading="lazy"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 max-sm:opacity-70">
+                    </div>
+                    <figcaption
+                        class="absolute left-5 bottom-4 z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 max-sm:translate-y-0 max-sm:opacity-100">
+                        <b class="block font-anton text-[0.96rem] tracking-wider uppercase text-white">Free Weight
+                            Zone</b>
+                        <span class="text-[0.68rem] text-white/70 tracking-[0.16em] uppercase">Dumbbells · Barbells ·
+                            Benches</span>
+                    </figcaption>
+                </figure>
+
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================
+     LIGHTBOX — with prev/next arrows
+     ============================================================ -->
+    <div class="lightbox fixed inset-0 z-[200] bg-black/96 backdrop-blur-md grid place-items-center p-4 md:p-8"
+        id="lightbox">
+
+        <!-- Close button -->
+        <button
+            class="absolute top-5 right-5 md:top-7 md:right-8 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-black text-xl transition-all duration-300 hover:bg-white hover:text-ink hover:border-white z-[210]"
+            id="lbClose" aria-label="Close">✕</button>
+
+        <!-- Previous arrow -->
+        <button
+            class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 text-black text-2xl transition-all duration-300 hover:bg-white hover:text-ink hover:border-white hover:scale-110 z-[210]"
+            id="lbPrev" aria-label="Previous image">←</button>
+
+        <!-- Image -->
+        <img src="" alt="Gallery preview" id="lbImg"
+            class="max-w-[90vw] max-h-[82vh] md:max-w-[88vw] md:max-h-[86vh] rounded-2xl border border-white/15 transition-opacity duration-300" />
+
+        <!-- Next arrow -->
+        <button
+            class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 grid place-items-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/30 text-black text-2xl transition-all duration-300 hover:bg-white hover:text-ink hover:border-white hover:scale-110 z-[210]"
+            id="lbNext" aria-label="Next image">→</button>
+
+        <!-- Counter (bottom-center) -->
+        <span
+            class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/70 text-[0.72rem] font-bold tracking-[0.2em] uppercase bg-black/40 border border-white/15 backdrop-blur-md px-4 py-2 rounded-full z-[210]"
+            id="lbCount">1 / 1</span>
+
+    </div>
+    <!-- ============================================================
+     FAQ
+     ============================================================ -->
+    <section class="py-20 md:py-32 bg-bg-2 border-y border-black/10" id="faq">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">FAQ</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Questions? <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">We
+                        Got You.</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Everything you need to know before your
+                    first visit.</p>
+            </div>
+
+            <div class="grid gap-3.5 mt-14 max-w-[860px] mx-auto reveal">
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        Do I need prior gym experience to join?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">Absolutely not. Whether you've
+                            never lifted a dumbbell or you're a seasoned athlete, our trainers will guide you from day
+                            one. We build a workout plan around your current fitness level.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        Is there a free trial?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">Yes! Your first session is
+                            completely free. Walk in for a trial workout, tour the facility, meet our trainers and see
+                            if we're a fit — no pressure, no commitment.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        What are your opening hours?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">We're open 24/7 for our members.
+                            Whether you like to train at 5 AM before work or 2 AM after a late shift, the doors are
+                            always open for you.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        Do you offer personal training?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">Yes — one-on-one personal training
+                            is available with all our certified coaches. PT sessions can be purchased as add-ons to any
+                            membership, or included in our Elite plan.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        Can I freeze or cancel my membership?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">Yes. You can freeze your
+                            membership for up to 30 days per year (perfect for travel or illness). Cancellations are
+                            easy and there are no hidden fees or lock-in periods.</p>
+                    </div>
+                </div>
+                <div
+                    class="faq-item bg-white border border-black/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-ink">
+                    <div
+                        class="faq-item__q flex justify-between items-center gap-5 px-7 py-6 cursor-pointer text-base font-semibold text-ink select-none">
+                        Is there a joining fee?
+                        <i
+                            class="flex-none grid place-items-center w-[34px] h-[34px] rounded-full bg-bg-2 border border-black/10 text-[1.1rem] not-italic transition-all duration-500">+</i>
+                    </div>
+                    <div class="faq-item__a">
+                        <p class="px-7 pb-6 text-muted text-[0.92rem] leading-[1.75]">No joining fee, no admission fee,
+                            no hidden charges. You pay only the plan price you see — that's it. We believe in
+                            transparent pricing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     CONTACT
+     ============================================================ -->
+    <section class="py-20 md:py-32" id="contact">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="text-center reveal">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-ink mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-ink before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-ink after:rounded-full">Contact
+                    Us</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,3.8rem)] leading-[1.02] tracking-[0.4px] uppercase text-ink">
+                    Ready To <span
+                        class="relative inline-block z-10 after:content-[''] after:absolute after:-inset-x-0.5 after:bottom-0.5 after:h-[0.32em] after:bg-ink after:opacity-10 after:-z-10 after:rounded">Transform?</span>
+                </h2>
+                <p class="text-muted text-[1.02rem] max-w-[640px] mx-auto mt-5">Drop us a message, call us, or just walk
+                    in. Your first session is on us.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-[1fr_1.2fr] gap-14 mt-16 reveal">
+
+                <div class="flex flex-col gap-6">
+
+                    <!-- Visit Us — Google Maps -->
+                    <a href="https://maps.app.goo.gl/3MRwfUJi3MbohdHU7" target="_blank" rel="noopener noreferrer"
+                        aria-label="Open location in Google Maps"
+                        class="group flex gap-[18px] items-start px-6 py-5 bg-bg-2 border border-black/10 rounded-2xl transition-all duration-500 hover:border-ink hover:translate-x-1 hover:bg-white hover:shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)] cursor-pointer">
+
+                        <i
+                            class="flex-none grid place-items-center w-12 h-12 rounded-xl bg-ink text-white text-xl not-italic transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)]">
+                            📍
+                        </i>
+
+                        <div>
+                            <b
+                                class="block text-[0.98rem] text-ink mb-0.5 transition-colors duration-300 group-hover:text-black">
+                                Visit Us
+                            </b>
+                            <span class="text-muted text-[0.9rem] transition-colors duration-300 group-hover:text-ink">
+                                Signal Gadda Rd, beside SBI BANK, Badepalle, Telangana 509301
+                            </span>
+                        </div>
+
+                        <span
+                            class="ml-auto self-center text-muted text-lg opacity-0 -translate-x-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-ink">
+                            →
+                        </span>
+                    </a>
+
+                    <!-- Call Us — tel link -->
+                    <a href="tel:+919014708424" aria-label="Call I Fitness Studio"
+                        class="group flex gap-[18px] items-start px-6 py-5 bg-bg-2 border border-black/10 rounded-2xl transition-all duration-500 hover:border-ink hover:translate-x-1 hover:bg-white hover:shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)] cursor-pointer">
+
+                        <i
+                            class="flex-none grid place-items-center w-12 h-12 rounded-xl bg-ink text-white text-xl not-italic transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)]">
+                            📞
+                        </i>
+
+                        <div>
+                            <b
+                                class="block text-[0.98rem] text-ink mb-0.5 transition-colors duration-300 group-hover:text-black">
+                                Call Us
+                            </b>
+                            <span class="text-muted text-[0.9rem] transition-colors duration-300 group-hover:text-ink">
+                                +91 90147 08424
+                            </span>
+                        </div>
+
+                        <span
+                            class="ml-auto self-center text-muted text-lg opacity-0 -translate-x-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-ink">
+                            →
+                        </span>
+                    </a>
+
+                    <!-- Email Us — mailto link -->
+                    <a href="mailto:info@ifitnessstudio.com" aria-label="Email I Fitness Studio"
+                        class="group flex gap-[18px] items-start px-6 py-5 bg-bg-2 border border-black/10 rounded-2xl transition-all duration-500 hover:border-ink hover:translate-x-1 hover:bg-white hover:shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)] cursor-pointer">
+
+                        <i
+                            class="flex-none grid place-items-center w-12 h-12 rounded-xl bg-ink text-white text-xl not-italic transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)]">
+                            ✉️
+                        </i>
+
+                        <div>
+                            <b
+                                class="block text-[0.98rem] text-ink mb-0.5 transition-colors duration-300 group-hover:text-black">
+                                Email Us
+                            </b>
+                            <span class="text-muted text-[0.9rem] transition-colors duration-300 group-hover:text-ink">
+                                info@ifitnessstudio.com
+                            </span>
+                        </div>
+
+                        <span
+                            class="ml-auto self-center text-muted text-lg opacity-0 -translate-x-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-ink">
+                            →
+                        </span>
+                    </a>
+
+                    <!-- Open Hours — with timings -->
+                    <div
+                        class="group flex gap-[18px] items-start px-6 py-5 bg-bg-2 border border-black/10 rounded-2xl transition-all duration-500 hover:border-ink hover:translate-x-1 hover:bg-white hover:shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)] cursor-default">
+
+                        <i
+                            class="flex-none grid place-items-center w-12 h-12 rounded-xl bg-ink text-white text-xl not-italic transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)]">
+                            🕐
+                        </i>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between gap-3 mb-3">
+                                <b
+                                    class="block text-[0.98rem] text-ink transition-colors duration-300 group-hover:text-black">
+                                    Open Hours
+                                </b>
+
+                                <!-- Live "Open" pulse -->
+                                <span
+                                    class="inline-flex items-center gap-1.5 text-[0.68rem] font-bold uppercase tracking-widest text-green-600">
+                                    <span class="relative flex h-2 w-2">
+                                        <span
+                                            class="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-600"></span>
+                                    </span>
+                                    Open
+                                </span>
+                            </div>
+
+                            <!-- Simple schedule list -->
+                            <ul
+                                class="text-[0.86rem] text-muted divide-y divide-black/[0.06] transition-colors duration-300 group-hover:text-ink">
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Sunday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Monday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Tuesday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Wednesday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Thursday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Friday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                                <li class="flex justify-between gap-4 py-1.5">
+                                    <span>Saturday</span>
+                                    <span class="text-right">5:30 AM – 10:00 AM<br>5:30 PM – 10:00 PM</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <form class="bg-bg-2 border border-black/10 rounded-3xl p-11 max-sm:p-7" action="#" method="post">
+                    <div class="mb-5">
+                        <label for="name"
+                            class="block text-[0.78rem] font-bold text-ink mb-2 tracking-wider uppercase">Full
+                            Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required
+                            class="w-full px-[18px] py-4 rounded-xl border border-black/20 bg-white text-ink placeholder:text-muted-2 text-[0.92rem] transition-all duration-300 focus:outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,0,0,.08)]" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="email"
+                            class="block text-[0.78rem] font-bold text-ink mb-2 tracking-wider uppercase">Email
+                            Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            class="w-full px-[18px] py-4 rounded-xl border border-black/20 bg-white text-ink placeholder:text-muted-2 text-[0.92rem] transition-all duration-300 focus:outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,0,0,.08)]" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="phone"
+                            class="block text-[0.78rem] font-bold text-ink mb-2 tracking-wider uppercase">Phone
+                            Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000"
+                            class="w-full px-[18px] py-4 rounded-xl border border-black/20 bg-white text-ink placeholder:text-muted-2 text-[0.92rem] transition-all duration-300 focus:outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,0,0,.08)]" />
+                    </div>
+                    <div class="mb-5">
+                        <label for="goal" class="block text-[0.78rem] font-bold text-ink mb-2 tracking-wider uppercase">
+                            Your Goal
+                        </label>
+
+                        <div class="relative">
+                            <select id="goal" name="goal" required
+                                class="w-full h-14 px-[18px] pr-12 rounded-xl border border-black/20 bg-white text-ink text-[0.92rem] leading-none appearance-none cursor-pointer transition-all duration-300 focus:outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,0,0,.08)] hover:border-ink/40">
+
+                                <option value="">Select a goal</option>
+                                <option value="weight-loss">Weight Loss</option>
+                                <option value="muscle-gain">Muscle Gain</option>
+                                <option value="general-fitness">General Fitness</option>
+                                <option value="strength">Strength &amp; Conditioning</option>
+                                <option value="other">Other</option>
+                            </select>
+
+                            <!-- Custom dropdown arrow -->
+                            <svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-2 transition-colors duration-300"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="message"
+                            class="block text-[0.78rem] font-bold text-ink mb-2 tracking-wider uppercase">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us a bit about yourself..."
+                            class="w-full px-[18px] py-4 rounded-xl border border-black/20 bg-white text-ink placeholder:text-muted-2 text-[0.92rem] resize-y min-h-[120px] transition-all duration-300 focus:outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,0,0,.08)]"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full inline-flex items-center justify-center gap-2.5 bg-ink text-white rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:bg-black hover:shadow-[0_20px_42px_-14px_rgba(0,0,0,.7)] mt-2">
+                        Send Message →
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+    <section class="py-24" id="cta">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="reveal-scale relative overflow-hidden rounded-[26px] px-10 py-24 text-center bg-cover bg-center border border-white/10 isolate"
+                style="background:linear-gradient(rgba(6,6,6,.7),rgba(6,6,6,.82)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80') center/cover">
+                <span
+                    class="inline-flex items-center gap-3 text-[0.72rem] font-extrabold tracking-[0.24em] uppercase text-white mb-5 before:content-[''] before:w-8 before:h-[1.5px] before:bg-white before:rounded-full after:content-[''] after:w-8 after:h-[1.5px] after:bg-white after:rounded-full">Ready
+                    To Start?</span>
+                <h2
+                    class="font-anton font-normal text-[clamp(2rem,5.4vw,4rem)] leading-[1.02] tracking-wider uppercase text-white max-w-[900px] mx-auto relative">
+                    Your First Session Is <span
+                        class="relative inline-block after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0.5 after:h-[0.28em] after:bg-white/25 after:-z-10">On
+                        Us.</span>
+                </h2>
+                <p class="text-neutral-300 max-w-[560px] mx-auto mt-6 mb-10 text-[1.02rem] relative">Walk in for a free
+                    trial workout, tour the facility and meet our trainers. No pressure, no commitment.</p>
+                <div class="flex flex-wrap justify-center gap-3.5 relative">
+                    <a href="tel:+919014708424"
+                        class="inline-flex items-center gap-2.5 bg-white text-ink rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:-translate-y-1 hover:bg-neutral-100 hover:shadow-[0_20px_42px_-14px_rgba(0,0,0,.5)]">📞
+                        Call Now</a>
+                    <a href="https://wa.me/919014708424" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2.5 border-2 border-white/50 text-white rounded-full px-8 py-4 text-[0.84rem] font-bold tracking-widest uppercase transition-all duration-500 hover:bg-white hover:text-ink hover:-translate-y-1">💬
+                        WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+    <footer class="bg-[#050505] text-white pt-24 pb-0 border-t border-white/10">
+        <div class="w-full max-w-[1240px] mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] gap-12 pb-16">
+
+                <div>
+                    <a href="#top" class="flex items-center gap-3 group mb-1">
+                        <img src="gymlogo.jpeg" alt="I.F.S Fitness Studio"
+                            class="h-16 md:h-20 w-auto rounded-full transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_4px_20px_rgba(255,255,255,.15)]" />
+                    </a>
+                    <p class="text-white/60 text-[0.88rem] mt-5 max-w-[290px]">Train hard. Stay consistent. Live strong.
+                        Your transformation starts the day you walk in.</p>
+                    <div class="flex gap-2.5 mt-6">
+                        <a href="https://www.instagram.com/_i_fitness_studio?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                            aria-label="Instagram"
+                            class="grid place-items-center w-11 h-11 rounded-xl border border-white/15 text-white transition-all duration-500 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-1"><svg
+                                viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg></a>
+                        <a href="#" aria-label="Facebook"
+                            class="grid place-items-center w-11 h-11 rounded-xl border border-white/15 text-white transition-all duration-500 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-1"><svg
+                                viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg></a>
+                        <a href="#" aria-label="YouTube"
+                            class="grid place-items-center w-11 h-11 rounded-xl border border-white/15 text-white transition-all duration-500 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-1"><svg
+                                viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg></a>
+                        <a href="https://wa.me/919014708424" aria-label="WhatsApp"
+                            class="grid place-items-center w-11 h-11 rounded-xl border border-white/15 text-white transition-all duration-500 hover:bg-white hover:text-ink hover:border-white hover:-translate-y-1"><svg
+                                viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="currentColor">
+                                <path
+                                    d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+                            </svg></a>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-[0.74rem] font-extrabold tracking-[0.22em] uppercase text-white mb-5">Explore</h5>
+                    <ul>
+                        <li class="mb-3"><a href="#about"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">About
+                                Us</a></li>
+                        <li class="mb-3"><a href="#facilities"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Facilities</a>
+                        </li>
+                        <li class="mb-3"><a href="#features"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Features</a>
+                        </li>
+                        <li class="mb-3"><a href="#trainers"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Trainers</a>
+                        </li>
+                        <li class="mb-3"><a href="#plans"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Plans</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[0.74rem] font-extrabold tracking-[0.22em] uppercase text-white mb-5">Programs</h5>
+                    <ul>
+                        <li class="mb-3"><a href="#"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Strength
+                                Training</a></li>
+                        <li class="mb-3"><a href="#"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Weight
+                                Loss</a></li>
+                        <li class="mb-3"><a href="#"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Personal
+                                Training</a></li>
+                        <li class="mb-3"><a href="#"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">Yoga
+                                &amp; Zumba</a></li>
+                        <li class="mb-3"><a href="#"
+                                class="text-white/60 text-[0.88rem] transition-all duration-300 hover:text-white hover:pl-1.5">CrossFit
+                                / HIIT</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[0.74rem] font-extrabold tracking-[0.22em] uppercase text-white mb-5">Visit Us</h5>
+                    <ul>
+                        <li class="mb-3 text-white/60 text-[0.88rem]">📍 Signal Gadda Rd, beside SBI BANK, Badepalle,
+                            Telangana 509301
+                        </li>
+                        <li class="mb-3 text-white/60 text-[0.88rem]">📞 <a href="tel:+919014708424"
+                                class="transition-all duration-300 hover:text-white">+91 90147 08424</a></li>
+                        <li class="mb-3 text-white/60 text-[0.88rem]">✉️ <a href="mailto:info@ifitnessstudio.com"
+                                class="transition-all duration-300 hover:text-white">info@ifitnessstudio.com</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="border-t border-white/10 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[0.78rem] text-white/40">
+
+                <!-- Left: Copyright -->
+                <span class="order-2 md:order-1 text-center md:text-left">
+                    © <span id="year"></span> I FITNESS STUDIO. All rights reserved.
+                </span>
+
+                <!-- Middle: Legal links -->
+                <nav class="order-1 md:order-2 flex items-center justify-center gap-1">
+                    <a href="#faq"
+                        class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-white/50 hover:text-white transition-all duration-300 hover:bg-white/5">
+                        <svg class="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        FAQs
+                    </a>
+
+                    <span class="text-white/15 select-none">•</span>
+
+                    <a href="privacy.html"
+                        class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-white/50 hover:text-white transition-all duration-300 hover:bg-white/5">
+                        <svg class="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Privacy Policy
+                    </a>
+                </nav>
+
+                <!-- Right: Tagline -->
+                <span class="order-3 text-center md:text-right">
+                    Designed By PillyRajeshKumar.
+                </span>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+     FLOATING BUTTONS
+     ============================================================ -->
+    <a href="https://wa.me/919014708424" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed right-6 bottom-6 z-[90] grid place-items-center w-14 h-14 rounded-full bg-[#25d366] text-white shadow-[0_14px_34px_-10px_rgba(37,211,102,.7)] transition-all duration-500 hover:scale-110 hover:-translate-y-1">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="#fff">
+            <path
+                d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" />
+        </svg>
+    </a>
+
+    <button id="toTop" aria-label="Back to top"
+        class="to-top fixed right-6 bottom-24 z-[90] grid place-items-center w-12 h-12 rounded-full bg-ink text-white border border-white/15 shadow-[0_14px_34px_-12px_rgba(0,0,0,.6)] hover:bg-black">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
+            <path d="M12 4l-8 8h5v8h6v-8h5z" />
+        </svg>
+    </button>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox fixed inset-0 z-[200] bg-black/96 backdrop-blur-md grid place-items-center p-8" id="lightbox">
+        <button
+            class="absolute top-7 right-8 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white text-xl transition-all duration-300 hover:bg-white hover:text-ink hover:border-white"
+            id="lbClose" aria-label="Close">✕</button>
+        <img src="" alt="Gallery preview" id="lbImg"
+            class="max-w-[92vw] max-h-[86vh] rounded-2xl border border-white/15" />
+    </div>
+
+
+    <script>
+            /* ============================================================
+               NAVBAR — scroll state + mobile drawer
+               ============================================================ */
+            (function () {
+                const nav = document.getElementById('nav');
+                const burger = document.getElementById('burger');
+                const links = document.getElementById('navLinks');
+                const backdrop = document.getElementById('navBackdrop');
+
+                if (!nav || !burger || !links) return;
+
+                /* --- 1. Scrolled state --- */
+                const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+
+                /* --- 2. Open / close helpers --- */
+                function openDrawer() {
+                    links.classList.add('open');
+                    burger.classList.add('open');
+                    burger.setAttribute('aria-expanded', 'true');
+                    if (backdrop) backdrop.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeDrawer() {
+                    links.classList.remove('open');
+                    burger.classList.remove('open');
+                    burger.setAttribute('aria-expanded', 'false');
+                    if (backdrop) backdrop.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+
+                /* --- 3. Burger toggle --- */
+                burger.addEventListener('click', (e) => {
+                    e.stopPropagation();                    // prevent backdrop click
+                    links.classList.contains('open') ? closeDrawer() : openDrawer();
+                });
+
+                /* --- 4. Close on backdrop click --- */
+                if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+                /* --- 5. Close on link click (mobile only) --- */
+                links.querySelectorAll('a').forEach((a) => {
+                    a.addEventListener('click', () => {
+                        if (window.innerWidth < 768) closeDrawer();
+                    });
+                });
+
+                /* --- 6. Close on Escape --- */
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && links.classList.contains('open')) closeDrawer();
+                });
+
+                /* --- 7. Auto-close on resize to desktop --- */
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 768 && links.classList.contains('open')) closeDrawer();
+                });
+            })();
+
+        /* ============================================================
+           2. HERO AUTO SLIDER
+           ============================================================ */
+        (function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dotsWrap = document.getElementById('heroDots');
+            if (!slides.length || !dotsWrap) return;
+            const DURATION = 5500;
+            let index = 0, timer = null;
+
+            slides.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                b.className = 'w-[34px] h-[3px] rounded bg-white/30 transition-all duration-500';
+                if (i === 0) { b.classList.add('active', 'bg-white', 'w-[60px]'); b.classList.remove('bg-white/30', 'w-[34px]'); }
+                b.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(b);
+            });
+            const dots = dotsWrap.querySelectorAll('button');
+
+            function applyDotState() {
+                dots.forEach((d, i) => {
+                    d.classList.toggle('bg-white', i === index);
+                    d.classList.toggle('w-[60px]', i === index);
+                    d.classList.toggle('bg-white/30', i !== index);
+                    d.classList.toggle('w-[34px]', i !== index);
+                });
+            }
+            function goTo(i) {
+                slides[index].classList.remove('active');
+                index = (i + slides.length) % slides.length;
+                slides[index].classList.add('active');
+                applyDotState();
+                restart();
+            }
+            function next() { goTo(index + 1); }
+            function restart() { clearInterval(timer); timer = setInterval(next, DURATION); }
+            restart();
+
+            document.addEventListener('visibilitychange', () => {
+                document.hidden ? clearInterval(timer) : restart();
+            });
+            const hero = document.querySelector('.hero') || document.querySelector('section');
+            if (hero) {
+                hero.addEventListener('mouseenter', () => clearInterval(timer));
+                hero.addEventListener('mouseleave', restart);
+            }
+        })();
+
+
+        /* ============================================================
+           3. SCROLL REVEAL
+           ============================================================ */
+        (function () {
+            const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('in'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            items.forEach(el => io.observe(el));
+        })();
+
+
+        /* ============================================================
+           4. COUNTER ANIMATION
+           ============================================================ */
+        (function () {
+            const counters = document.querySelectorAll('[data-count]');
+            if (!counters.length) return;
+            const run = (el) => {
+                const target = +el.dataset.count;
+                const dur = 1600;
+                const start = performance.now();
+                const tick = (now) => {
+                    const p = Math.min((now - start) / dur, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.floor(eased * target).toLocaleString();
+                    if (p < 1) requestAnimationFrame(tick);
+                    else el.textContent = target.toLocaleString() + (target >= 100 ? '+' : '');
+                };
+                requestAnimationFrame(tick);
+            };
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+            }, { threshold: 0.5 });
+            counters.forEach(c => io.observe(c));
+        })();
+
+
+        /* ============================================================
+           5. TESTIMONIAL CAROUSEL — AUTO ADVANCE
+           ============================================================ */
+        (function () {
+            const track = document.getElementById('testiTrack');
+            const prev = document.getElementById('testiPrev');
+            const next = document.getElementById('testiNext');
+            const dotsW = document.getElementById('testiDots');
+            const progress = document.getElementById('testiProgress');
+            if (!track) return;
+
+            const cards = track.querySelectorAll('.testi-card');
+            const AUTO_DELAY = 4500;
+            const PROGRESS_STEP = 50;
+
+            let autoTimer = null;
+            let progressTimer = null;
+            let progressValue = 0;
+            let paused = false;
+
+            cards.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+                b.className = 'w-2.5 h-2.5 rounded-full bg-black/20 transition-all duration-300';
+                b.addEventListener('click', () => { scrollToCard(i); resetAuto(); });
+                dotsW.appendChild(b);
+            });
+            const dots = dotsW.querySelectorAll('button');
+
+            function cardStep() {
+                const card = cards[0];
+                const style = getComputedStyle(track);
+                const gap = parseInt(style.columnGap || style.gap || 24);
+                return card.getBoundingClientRect().width + gap;
+            }
+            function scrollToCard(i) {
+                const step = cardStep();
+                track.scrollTo({ left: step * i, behavior: 'smooth' });
+            }
+            function updateUI() {
+                const step = cardStep();
+                const idx = Math.round(track.scrollLeft / step);
+                dots.forEach((d, i) => {
+                    d.classList.toggle('bg-ink', i === idx);
+                    d.classList.toggle('w-7', i === idx);
+                    d.classList.toggle('rounded-md', i === idx);
+                    d.classList.toggle('bg-black/20', i !== idx);
+                    d.classList.toggle('w-2.5', i !== idx);
+                    d.classList.toggle('rounded-full', i !== idx);
+                });
+                prev.disabled = track.scrollLeft < 8;
+                next.disabled = track.scrollLeft >= (track.scrollWidth - track.clientWidth - 8);
+            }
+            function advance() {
+                if (paused) return;
+                const step = cardStep();
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                if (track.scrollLeft >= maxScroll - 4) {
+                    track.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    track.scrollBy({ left: step, behavior: 'smooth' });
+                }
+            }
+            function tickProgress() {
+                if (paused) return;
+                progressValue += (PROGRESS_STEP / AUTO_DELAY) * 100;
+                if (progressValue >= 100) progressValue = 0;
+                if (progress) progress.style.width = progressValue + '%';
+            }
+            function resetAuto() {
+                clearInterval(autoTimer);
+                clearInterval(progressTimer);
+                progressValue = 0;
+                if (progress) progress.style.width = '0%';
+                autoTimer = setInterval(advance, AUTO_DELAY);
+                progressTimer = setInterval(tickProgress, PROGRESS_STEP);
+            }
+
+            prev.addEventListener('click', () => { track.scrollBy({ left: -cardStep(), behavior: 'smooth' }); resetAuto(); });
+            next.addEventListener('click', () => { track.scrollBy({ left: cardStep(), behavior: 'smooth' }); resetAuto(); });
+
+            track.addEventListener('scroll', () => {
+                clearTimeout(track._t);
+                track._t = setTimeout(updateUI, 60);
+            });
+
+            track.addEventListener('mouseenter', () => { paused = true; });
+            track.addEventListener('mouseleave', () => { paused = false; });
+            track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+            track.addEventListener('touchend', () => { setTimeout(() => paused = false, 2000); }, { passive: true });
+
+            window.addEventListener('resize', updateUI);
+            updateUI();
+            resetAuto();
+        })();
+
+
+        /* ============================================================
+           6. FAQ ACCORDION
+           ============================================================ */
+        (function () {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-item__q').addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item').forEach(other => {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-item__a').style.maxHeight = null;
+                    });
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        item.querySelector('.faq-item__a').style.maxHeight = item.querySelector('.faq-item__a').scrollHeight + 'px';
+                    }
+                });
+            });
+        })();
+
+        /* ============================================================
+           GALLERY — FILTER TABS + LIGHTBOX
+           ============================================================ */
+        (function () {
+
+            /* ---------- 1. FILTER TABS ---------- */
+            const filters = document.querySelectorAll('.gal-filter');
+            const items = document.querySelectorAll('#galleryGrid .g-item');
+
+            if (filters.length && items.length) {
+                filters.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filters.forEach(f => f.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        const cat = btn.dataset.filter;
+
+                        items.forEach(item => {
+                            const matches = cat === 'all' || item.dataset.cat === cat;
+                            if (matches) {
+                                item.classList.remove('is-hidden');
+                                item.style.opacity = '0';
+                                item.style.transform = 'scale(.96)';
+                                requestAnimationFrame(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'none';
+                                });
+                            } else {
+                                item.style.opacity = '0';
+                                item.style.transform = 'scale(.96)';
+                                setTimeout(() => item.classList.add('is-hidden'), 200);
+                            }
+                        });
+                    });
+                });
+            }
+
+            /* ---------- 2. LIGHTBOX ---------- */
+            const box = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lbImg');
+            const lbClose = document.getElementById('lbClose');
+            const lbPrev = document.getElementById('lbPrev');
+            const lbNext = document.getElementById('lbNext');
+            const lbCount = document.getElementById('lbCount');
+            const grid = document.getElementById('galleryGrid');
+
+            if (!box || !lbImg || !grid) return;
+
+            let images = [];      // currently visible images
+            let current = 0;
+
+            // Refresh visible images (respects filter tabs)
+            function refreshImages() {
+                images = Array.from(
+                    grid.querySelectorAll('.g-item:not(.is-hidden) img')
+                );
+            }
+
+            // Show image at index with smooth fade
+            function show(index) {
+                if (!images.length) return;
+                current = (index + images.length) % images.length;
+
+                const nextImg = images[current];
+                const nextSrc = nextImg.currentSrc || nextImg.src;
+
+                // Fade out → swap → fade in
+                lbImg.style.opacity = '0';
+                const pre = new Image();
+                pre.onload = () => {
+                    lbImg.src = nextSrc;
+                    lbImg.alt = nextImg.alt || '';
+                    lbImg.style.opacity = '1';
+                };
+                pre.src = nextSrc;
+
+                if (lbCount) lbCount.textContent = (current + 1) + ' / ' + images.length;
+            }
+
+            // Open lightbox
+            function open(index) {
+                refreshImages();
+                if (!images.length) return;
+                show(index);
+                box.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close lightbox
+            function hide() {
+                box.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            // Nav
+            function goPrev() { show(current - 1); }
+            function goNext() { show(current + 1); }
+
+            /* ---- Attach click to every gallery tile ---- */
+            grid.addEventListener('click', (e) => {
+                const tile = e.target.closest('.g-item');
+                if (!tile || tile.classList.contains('is-hidden')) return;
+
+                refreshImages();
+                const img = tile.querySelector('img');
+                const idx = images.indexOf(img);
+                if (idx >= 0) open(idx);
+            });
+
+            /* ---- Buttons ---- */
+            lbClose.addEventListener('click', hide);
+            lbPrev.addEventListener('click', (e) => { e.stopPropagation(); goPrev(); });
+            lbNext.addEventListener('click', (e) => { e.stopPropagation(); goNext(); });
+
+            /* ---- Click backdrop to close ---- */
+            box.addEventListener('click', (e) => {
+                if (e.target === box) hide();
+            });
+
+            /* ---- Keyboard navigation ---- */
+            document.addEventListener('keydown', (e) => {
+                if (!box.classList.contains('open')) return;
+                if (e.key === 'Escape') hide();
+                if (e.key === 'ArrowLeft') goPrev();
+                if (e.key === 'ArrowRight') goNext();
+            });
+
+            /* ---- Touch swipe on mobile ---- */
+            let touchStartX = 0;
+            lbImg.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            lbImg.addEventListener('touchend', (e) => {
+                const diff = e.changedTouches[0].screenX - touchStartX;
+                if (Math.abs(diff) < 40) return;   // ignore tiny taps
+                if (diff < 0) goNext();            // swipe left → next
+                else goPrev();            // swipe right → prev
+            }, { passive: true });
+
+        })();
+        /* ============================================================
+           8. CARD SPOTLIGHT
+           ============================================================ */
+        (function () {
+            document.querySelectorAll('.fac-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const r = card.getBoundingClientRect();
+                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                });
+            });
+        })();
+
+
+        /* ============================================================
+           9. BACK TO TOP
+           ============================================================ */
+        (function () {
+            const btn = document.getElementById('toTop');
+            if (!btn) return;
+            const toggle = () => btn.classList.toggle('show', window.scrollY > 500);
+            toggle();
+            window.addEventListener('scroll', toggle, { passive: true });
+
+            btn.addEventListener('click', () => {
+                const startY = window.scrollY;
+                const duration = 900;
+                const startTime = performance.now();
+                const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+                const step = () => {
+                    const p = Math.min((performance.now() - startTime) / duration, 1);
+                    window.scrollTo(0, startY * (1 - easeOut(p)));
+                    if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            });
+        })();
+
+
+        /* ============================================================
+           10. FOOTER YEAR
+           ============================================================ */
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
